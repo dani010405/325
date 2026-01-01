@@ -42,36 +42,29 @@ let zIndexCounter = 400;
 audio.src = playlist[track];
 audio.volume = 0.4;
 
-/* FIRST INTERACTION */
 cover.onclick = () => {
   audio.play();
   cover.style.display = "none";
 };
 
-/* PLAYLIST */
 audio.onended = () => {
   track = (track + 1) % playlist.length;
   audio.src = playlist[track];
   audio.play();
 };
 
-/* MUTE */
 pauseBtn.addEventListener("click", () => {
-  // Find the image inside the button
   const musicIcon = pauseBtn.querySelector("img");
 
   if (audio.paused) {
     audio.play();
-    // Change back to the "playing" icon
     musicIcon.src = "icons/music.png";
   } else {
     audio.pause();
-    // Change to the "muted" icon
     musicIcon.src = "icons/mute.png";
   }
 });
 
-/* PIN WINDOWS */
 const PIN = "152421";
 const isDesktop = window.matchMedia("(pointer:fine)").matches;
 
@@ -96,16 +89,15 @@ function setupWindow(btnId, winId) {
 
   close.onclick = () => win.classList.add("hidden");
 
-  // --- NEW FIXED CODE ---
   unlock.onclick = () => {
     if (input.value === PIN) {
       const gate = win.querySelector(".auth-section");
-      const secretContent = win.querySelector(".popup-content"); // Targets the actual content
+      const secretContent = win.querySelector(".popup-content");
 
       if (gate) gate.style.display = "none";
       if (secretContent) {
-        secretContent.classList.remove("hidden"); // This is the crucial fix
-        secretContent.style.display = "block";    // Ensures it's visible
+        secretContent.classList.remove("hidden");
+        secretContent.style.display = "block";
       }
 
       win.classList.add("unlocked");
@@ -114,12 +106,8 @@ function setupWindow(btnId, winId) {
     }
   };
 
-
-
-
   win.addEventListener("mousedown", () => bringToFront(win));
 
-  /* DRAG — DESKTOP ONLY */
   if (isDesktop) {
     let dragging = false, ox = 0, oy = 0;
 
@@ -143,7 +131,6 @@ function setupWindow(btnId, winId) {
 
 setupWindow("messageBtn", "messageWindow");
 
-/* --- PHOTO JOURNAL DATA --- */
 const galleryData = [
   { img: "imgs/photojournals/010126.jpeg", text: [
     "January 1, 2026",
@@ -160,15 +147,12 @@ const galleryData = [
   }
 ];
 
-
-/* DOM HOOKS */
 const gallery = document.getElementById("photoGallery");
 const viewer = document.getElementById("journalViewer");
 const viewerImage = document.getElementById("viewerImage");
 const viewerText = document.getElementById("viewerText");
 const closeViewer = document.getElementById("closeViewer");
 
-/* Render square gallery grid */
 if (gallery) {
   galleryData.forEach((item, i) => {
     const img = document.createElement("img");
@@ -186,7 +170,6 @@ if (gallery) {
   });
 }
 
-/* Exit fullscreen viewer */
 if (closeViewer) {
   closeViewer.onclick = () => viewer.classList.add("hidden");
 }
@@ -194,7 +177,6 @@ if (closeViewer) {
 
 setupWindow("photoBtn", "photoWindow");
 
-/* PORTRAIT OVERLAY */
 document.addEventListener("DOMContentLoaded", () => {
     const avatar = document.getElementById("avatarImg");
     const portraitViewer = document.getElementById("portrait-viewer");
@@ -202,9 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (avatar && portraitViewer) {
         avatar.onclick = (e) => {
-            e.preventDefault(); // Prevents any accidental link triggers
+            e.preventDefault();
             portraitViewer.classList.remove("hidden");
-            console.log("Portrait opened"); // Check your browser console (F12) to see this
+            console.log("Portrait opened");
         };
     }
 
@@ -214,10 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    // Close when clicking the dark background
     portraitViewer.onclick = (e) => {
         if (e.target === portraitViewer) {
             portraitViewer.classList.add("hidden");
         }
     };
+
 });
