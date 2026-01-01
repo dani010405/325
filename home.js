@@ -1,0 +1,223 @@
+const audio = document.getElementById("bgMusic");
+const cover = document.getElementById("cover-screen");
+const pauseBtn = document.getElementById("pauseBtn");
+
+const playlist = [
+  "audio files/The Wind - Joe Hisaishi.mp3",
+  "audio files/Nahoko (A Rainbow) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (An Unexpected Meeting) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (Her Destiny) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (I Miss You) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (The Encounter) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (The Proposal) - Joe Hisaishi.mp3",
+  "audio files/Nahoko (Together) - Joe Hisaishi.mp3",
+  "audio files/A Heart Aflutter - Joe Hisaishi.mp3",
+  "audio files/A Journey (A Decision) - Joe Hisaishi.mp3",
+  "audio files/A Journey (A Dream of Flight) - Joe Hisaishi.mp3",
+  "audio files/A Journey (A Kingdom of Dreams) - Joe Hisaishi.mp3",
+  "audio files/A Journey (A Parting) - Joe Hisaishi.mp3",
+  "audio files/A Journey (An Encounter at Karuizawa) - Joe Hisaishi.mp3",
+  "audio files/A Journey (Caproni Retires) - Joe Hisaishi.mp3",
+  "audio files/A Journey (First Day at Work) - Joe Hisaishi.mp3",
+  "audio files/A Journey (Italian Winds) - Joe Hisaishi.mp3",
+  "audio files/A Journey (Jiro's Sister) - Joe Hisaishi.mp3",
+  "audio files/A Journey (The Wedding) - Joe Hisaishi.mp3",
+  "audio files/A Shooting Star - Joe Hisaishi.mp3",
+  "audio files/Caproni (A Phantom Giant Aircraft) - Joe Hisaishi.mp3",
+  "audio files/Caproni (An Aeronautical Designer's Dream) - Joe Hisaishi.mp3",
+  "audio files/Castorp (A Separation) - Joe Hisaishi.mp3",
+  "audio files/Castorp (The Magic Mountain) - Joe Hisaishi.mp3",
+  "audio files/Junkers - Joe Hisaishi.mp3",
+  "audio files/Paper Airplane - Joe Hisaishi.mp3",
+  "audio files/Prototype 8 - Joe Hisaishi.mp3",
+  "audio files/The Falcon - Joe Hisaishi.mp3",
+  "audio files/The Falcon Project - Joe Hisaishi.mp3",
+  "audio files/The Lifesaver - Joe Hisaishi.mp3",
+  "audio files/The Refuge - Joe Hisaishi.mp3"
+];
+
+let track = 0;
+let zIndexCounter = 400;
+
+audio.src = playlist[track];
+audio.volume = 0.4;
+
+/* FIRST INTERACTION */
+cover.onclick = () => {
+  audio.play();
+  cover.style.display = "none";
+};
+
+/* PLAYLIST */
+audio.onended = () => {
+  track = (track + 1) % playlist.length;
+  audio.src = playlist[track];
+  audio.play();
+};
+
+/* MUTE */
+pauseBtn.addEventListener("click", () => {
+  // Find the image inside the button
+  const musicIcon = pauseBtn.querySelector("img");
+
+  if (audio.paused) {
+    audio.play();
+    // Change back to the "playing" icon
+    musicIcon.src = "icons/music.png";
+  } else {
+    audio.pause();
+    // Change to the "muted" icon
+    musicIcon.src = "icons/mute.png";
+  }
+});
+
+/* PIN WINDOWS */
+const PIN = "152421";
+const isDesktop = window.matchMedia("(pointer:fine)").matches;
+
+function bringToFront(win) {
+  zIndexCounter++;
+  win.style.zIndex = zIndexCounter;
+}
+
+function setupWindow(btnId, winId) {
+  const btn = document.getElementById(btnId);
+  const win = document.getElementById(winId);
+  const close = win.querySelector(".close");
+  const unlock = win.querySelector(".unlock");
+  const input = win.querySelector(".pincode");
+  const content = win.querySelector(".popup-content");
+  const header = win.querySelector(".popup-header");
+
+  btn.onclick = () => {
+    win.classList.remove("hidden");
+    bringToFront(win);
+  };
+
+  close.onclick = () => win.classList.add("hidden");
+
+  // --- NEW FIXED CODE ---
+  unlock.onclick = () => {
+    if (input.value === PIN) {
+      const gate = win.querySelector(".auth-section");
+      const secretContent = win.querySelector(".popup-content"); // Targets the actual content
+
+      if (gate) gate.style.display = "none";
+      if (secretContent) {
+        secretContent.classList.remove("hidden"); // This is the crucial fix
+        secretContent.style.display = "block";    // Ensures it's visible
+      }
+
+      win.classList.add("unlocked");
+    } else {
+      alert("Incorrect pincode.");
+    }
+  };
+
+
+
+
+  win.addEventListener("mousedown", () => bringToFront(win));
+
+  /* DRAG — DESKTOP ONLY */
+  if (isDesktop) {
+    let dragging = false, ox = 0, oy = 0;
+
+    header.onmousedown = e => {
+      dragging = true;
+      ox = e.clientX - win.offsetLeft;
+      oy = e.clientY - win.offsetTop;
+    };
+
+    document.addEventListener("mousemove", e => {
+      if (!dragging) return;
+      win.style.left = e.clientX - ox + "px";
+      win.style.top = e.clientY - oy + "px";
+      win.style.transform = "none";
+    });
+
+    document.addEventListener("mouseup", () => dragging = false);
+  }
+
+}
+
+setupWindow("messageBtn", "messageWindow");
+
+/* --- PHOTO JOURNAL DATA --- */
+const galleryData = [
+  { img: "imgs/photojournals/010126.jpeg", text: [
+    "January 1, 2026",
+    "It's the first day of the year, and I am writing this feeling defeated by my anxieties about what would happen if I finally send her this letter. But KC asked me what I’d prefer. Would I prefer my efforts to stay with me, or would I prefer it to reach its muse, even if she doesn't respond? I think that now, at least, it would reach her. So I will send her this.",
+    "It's 3AM, and just approximately three hours before this, I had the best New Year's celebration ever. This is the first time I spent it outside on the street, on our street. I never go outside the house when the clock hits 12AM of any other year. Because I would always go upstairs to watch the fireworks display. I never thought that watching the streets filled with people would be more enthralling.",
+    "The street was filled with smoke from firecrackers and motorcycles. This is the noisiest on our street, except that one time a fire broke out. People threw coins in the air, and KC’s mom threw chocolate candies, too. Our street was filled with karaoke speakers, and that one humongous sound system that looked like it came from Korea's DMZ, party horn noises, bogas, thundering motorcycle revs, from a specific car, too. A neighbor offered me tequila. I said yes, but retreated the moment I saw lemon slices. Only then do I realize it would make me choke and make my throat burn. Thank heavens, I withdrew. I love living here, I just realized. I almost lost my voice from singing too much at the karaoke, too. I kind of lost some air blowing my party horn. Regardless, I felt happy.",
+    "This is the first time, too, that I celebrated the New Year with KC. I have never been grateful enough for having such a friend who would celebrate with me both Christmas and New Year. Regrettably, though, we couldn’t celebrate the 2025’s Christmas together. Anyway, we spent a few times near the plaza yesterday, and I bought us ice cream. She accompanied me to buy party horns for my siblings. I can only wish we could celebrate with our other friends, too.",
+    "My mom and siblings were with me on the street as well, and I'm content with how they smiled today. I wish this year would bring us together more. I wish to spend the celebrations we’ll have this year feeling genuinely happy.",
+    "Recalling what happened in the first few hours of this year, the thought of this website burdening its muse never escaped me. But as I now write my first entry in my digital photojournal, I fear the next course of action I would take.",
+    "Nevertheless, I wish to have a happy New Year. No matter what.",
+    "If you're reading this:",
+    "Happy New Year! May you enjoy living a healthy life and success. I always wish you the best."
+    ]
+  }
+];
+
+
+/* DOM HOOKS */
+const gallery = document.getElementById("photoGallery");
+const viewer = document.getElementById("journalViewer");
+const viewerImage = document.getElementById("viewerImage");
+const viewerText = document.getElementById("viewerText");
+const closeViewer = document.getElementById("closeViewer");
+
+/* Render square gallery grid */
+if (gallery) {
+  galleryData.forEach((item, i) => {
+    const img = document.createElement("img");
+    img.src = item.img;
+    img.alt = "journal entry " + (i + 1);
+    img.dataset.index = i;
+
+    img.onclick = () => {
+      viewerImage.src = item.img;
+      viewerText.innerHTML = item.text.map(p => `<p>${p}</p>`).join("");
+      viewer.classList.remove("hidden");
+    };
+
+    gallery.appendChild(img);
+  });
+}
+
+/* Exit fullscreen viewer */
+if (closeViewer) {
+  closeViewer.onclick = () => viewer.classList.add("hidden");
+}
+
+
+setupWindow("photoBtn", "photoWindow");
+
+/* PORTRAIT OVERLAY */
+document.addEventListener("DOMContentLoaded", () => {
+    const avatar = document.getElementById("avatarImg");
+    const portraitViewer = document.getElementById("portrait-viewer");
+    const closePortraitBtn = document.getElementById("close-portrait");
+
+    if (avatar && portraitViewer) {
+        avatar.onclick = (e) => {
+            e.preventDefault(); // Prevents any accidental link triggers
+            portraitViewer.classList.remove("hidden");
+            console.log("Portrait opened"); // Check your browser console (F12) to see this
+        };
+    }
+
+    if (closePortraitBtn) {
+        closePortraitBtn.onclick = () => {
+            portraitViewer.classList.add("hidden");
+        };
+    }
+
+    // Close when clicking the dark background
+    portraitViewer.onclick = (e) => {
+        if (e.target === portraitViewer) {
+            portraitViewer.classList.add("hidden");
+        }
+    };
+});
