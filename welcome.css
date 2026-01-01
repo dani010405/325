@@ -10,7 +10,6 @@
   display: none; 
 }
 
-/* PAUSE BUTTON */
 .pause-button {
   position: absolute;
   top: 50px;
@@ -49,7 +48,6 @@
 	border-radius: 20px;
 }
 
-/* SKIP BUTTON */
 .skip-button {
   position: absolute;
   top: 50px;
@@ -83,7 +81,6 @@
 	border-radius: 20px;
 }
 
-/* WELCOME CONTAINER */
 #welcome-container {
   margin-top: 20vh;
   height: 70vh;
@@ -119,7 +116,7 @@
 
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('fonts/Aldus\ Roman/Aldus Roman.otf') format('truetype'); /* Ensure path is correct */
+    src: url('fonts/Aldus\ Roman/Aldus Roman.otf') format('truetype');
 }
 
 @keyframes fadeInUp {
@@ -138,14 +135,12 @@
 		font-size: 75px;
 		font-weight: lighter;
     animation: fadeInUp 1s ease forwards;
-    /* Keeps text visible and centered */
     display: block;
     margin: 20px;
     pointer-events: none;
 		text-shadow: 0, 0, 5px black;
 }
 
-/* 3. TRANSITION FOR PAGE CLOSING */
 .fade-out {
     opacity: 0;
     transition: opacity 1s ease;
@@ -156,7 +151,6 @@
   display: none; 
 }
 
-/* 2. LANDSCAPE OVERLAY: Show only when phone is vertical */
 #orientation-overlay {
   display: none;
   position: fixed;
@@ -173,6 +167,7 @@
 
 @media screen and (orientation: portrait) {
   #orientation-overlay {
-    display: flex; /* Show the warning if held vertically */
+    display: flex;
   }
+
 }
