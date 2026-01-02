@@ -132,7 +132,7 @@ function setupWindow(btnId, winId) {
 setupWindow("messageBtn", "messageWindow");
 
 const galleryData = [
-  { img: "imgs/photojournals/0102-0326.jpeg",
+  { img: "imgs/photojournals/0102-0326.jpg",
     text: [
       "Are you here?",
       "If you are, I don’t know, you shouldn’t read this journal entry. It’s very long, mentally exhausting; simply put, draining.",
@@ -271,4 +271,5 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 });
+
 
