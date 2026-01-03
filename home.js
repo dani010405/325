@@ -132,6 +132,19 @@ function setupWindow(btnId, winId) {
 setupWindow("messageBtn", "messageWindow");
 
 const galleryData = [
+  { img: "imgs/photojournals/010126.jpeg", text: [
+    "January 1, 2026",
+    "It's the first day of the year, and I am writing this feeling defeated by my anxieties about what would happen if I finally send her this letter. But KC asked me what I’d prefer. Would I prefer my efforts to stay with me, or would I prefer it to reach its muse, even if she doesn't respond? I think that now, at least, it would reach her. So I will send her this.",
+    "It's 3AM, and just approximately three hours before this, I had the best New Year's celebration ever. This is the first time I spent it outside on the street, on our street. I never go outside the house when the clock hits 12AM of any other year. Because I would always go upstairs to watch the fireworks display. I never thought that watching the streets filled with people would be more enthralling.",
+    "The street was filled with smoke from firecrackers and motorcycles. This is the noisiest on our street, except that one time a fire broke out. People threw coins in the air, and KC’s mom threw chocolate candies, too. Our street was filled with karaoke speakers, and that one humongous sound system that looked like it came from Korea's DMZ, party horn noises, bogas, thundering motorcycle revs, from a specific car, too. A neighbor offered me tequila. I said yes, but retreated the moment I saw lemon slices. Only then do I realize it would make me choke and make my throat burn. Thank heavens, I withdrew. I love living here, I just realized. I almost lost my voice from singing too much at the karaoke, too. I kind of lost some air blowing my party horn. Regardless, I felt happy.",
+    "This is the first time, too, that I celebrated the New Year with KC. I have never been grateful enough for having such a friend who would celebrate with me both Christmas and New Year. Regrettably, though, we couldn’t celebrate the 2025’s Christmas together. Anyway, we spent a few times near the plaza yesterday, and I bought us ice cream. She accompanied me to buy party horns for my siblings. I can only wish we could celebrate with our other friends, too.",
+    "My mom and siblings were with me on the street as well, and I'm content with how they smiled today. I wish this year would bring us together more. I wish to spend the celebrations we’ll have this year feeling genuinely happy.",
+    "Recalling what happened in the first few hours of this year, the thought of this website burdening its muse never escaped me. But as I now write my first entry in my digital photojournal, I fear the next course of action I would take.",
+    "Nevertheless, I wish to have a happy New Year. No matter what.",
+    "If you're reading this:",
+    "Happy New Year! May you enjoy living a healthy life and success. I always wish you the best."
+    ]
+  },
   { img: "imgs/photojournals/0102-0326.jpeg", text: [
     "January 2-3, 2026",
     "Are you here?",
@@ -160,17 +173,27 @@ const galleryData = [
     "nyke should cease writing sir"
     ]  
   },
-  { img: "imgs/photojournals/010126.jpeg", text: [
-    "January 1, 2026",
-    "It's the first day of the year, and I am writing this feeling defeated by my anxieties about what would happen if I finally send her this letter. But KC asked me what I’d prefer. Would I prefer my efforts to stay with me, or would I prefer it to reach its muse, even if she doesn't respond? I think that now, at least, it would reach her. So I will send her this.",
-    "It's 3AM, and just approximately three hours before this, I had the best New Year's celebration ever. This is the first time I spent it outside on the street, on our street. I never go outside the house when the clock hits 12AM of any other year. Because I would always go upstairs to watch the fireworks display. I never thought that watching the streets filled with people would be more enthralling.",
-    "The street was filled with smoke from firecrackers and motorcycles. This is the noisiest on our street, except that one time a fire broke out. People threw coins in the air, and KC’s mom threw chocolate candies, too. Our street was filled with karaoke speakers, and that one humongous sound system that looked like it came from Korea's DMZ, party horn noises, bogas, thundering motorcycle revs, from a specific car, too. A neighbor offered me tequila. I said yes, but retreated the moment I saw lemon slices. Only then do I realize it would make me choke and make my throat burn. Thank heavens, I withdrew. I love living here, I just realized. I almost lost my voice from singing too much at the karaoke, too. I kind of lost some air blowing my party horn. Regardless, I felt happy.",
-    "This is the first time, too, that I celebrated the New Year with KC. I have never been grateful enough for having such a friend who would celebrate with me both Christmas and New Year. Regrettably, though, we couldn’t celebrate the 2025’s Christmas together. Anyway, we spent a few times near the plaza yesterday, and I bought us ice cream. She accompanied me to buy party horns for my siblings. I can only wish we could celebrate with our other friends, too.",
-    "My mom and siblings were with me on the street as well, and I'm content with how they smiled today. I wish this year would bring us together more. I wish to spend the celebrations we’ll have this year feeling genuinely happy.",
-    "Recalling what happened in the first few hours of this year, the thought of this website burdening its muse never escaped me. But as I now write my first entry in my digital photojournal, I fear the next course of action I would take.",
-    "Nevertheless, I wish to have a happy New Year. No matter what.",
-    "If you're reading this:",
-    "Happy New Year! May you enjoy living a healthy life and success. I always wish you the best."
+  { img: "imgs/photojournals/010426.jpeg", text: [
+    "January 04, 2026",
+    "I have nothing. I have no right to even say what I’m about to say.",
+    "But you are cruel. It’s not like you are obligated to greet me today, and it’s not like I deserve it. And most of all, it’s not like I didn't hurt you at all. Still, you are so cruel. I can only hope that this is all there is; that you are safe and you’re doing well. I can take this as long as you’re in a good situation. I hope that the reason you’re not greeting me today is that I hurt you and I caused you pain, and you hate me so much now. Because I believe I can’t take it if you’re in a tight situation where you are sick. I can take this if that’s all there is, that I don’t deserve your greetings.",
+    "I bought myself a bottle of liquor earlier, on January 3. I watched Past Lives. I had a friend watching with me, with Araceli as her alias. It was embarrassing how I didn’t realize I had my mic on the whole time we were watching because I was drinking alone. Because I waited. I waited for you. To greet me. And I burst into tears at exactly 12AM, knowing I was right about you not greeting me. It’s completely a child’s act, no? To cry on your birthday because someone forgot to greet you.",
+    "Regardless, I know you want me to lose all hope, and that’s maybe why you’re doing this. I just wish this were all just your cruelty and not because you’re sick or unsafe. Is it wrong to still think you’d greet me? Is it stupid to still think there’s still a lot of time left today for you to greet me? Am I stupid for still hoping? How am I supposed to not hope at all?",
+    "But then I heard this line in the movie earlier, and it will stick with me for a while: “You had to leave because you’re you.” I know that, but can I just tell you this: it’s really hard to accept that fact, knowing that I love you. And who you are is a person who can’t love me for me, and who you became is a person who leaves. You are a person who sticks to their ideals, and you are a person with a strong sense of self-identity. Everything you’re doing now is all unfamiliar and indifferent to me. And this is how it’s easy to know I might not have mattered so much to you as you claimed. Then again, you are not burdened by blame because this is my fate, and this much is what I deserve.",
+    "Then again, the you I met might just be a version of you, and though she was real, she doesn’t exist anymore in your world. And maybe you left her here with me. So I am defeated—I am defeated by the fact that I might still have the you that met me. And she’s mine to keep for all eternity—maybe. I ought to be a little more grateful, no?",
+    "Is this disgusting? Do my words disgust you? Irritate you? I am sorry. I have no idea where to stand. Perhaps I lied when I said I’ll try to live now. Am I allowed to feel this way now? It’s my birthday anyway. Am I allowed to decline the growth I promised you? I don’t know. Have you even visited this site already? Are you even reading this? It’s funny how I might seem so delusional right now. You are not the only thing that matters in my life, but why does it feel like my world just crumbled again?",
+    "I am not that drunk, I think. The drink just got me emotional, lmao.",
+    "Right now, I am thinking about how hard it was for you to deal with my leaving last year. Maybe I should know. Because perhaps I can say I’m okay with us not talking anymore, too, if only I knew how you did.",
+    "You’ve been silent for two days. I don’t know all your social media, but I hope you’re not as quiet on the other as you are on Facebook. I might take this website down tomorrow, on January 5th. My existence might be a threat to you now. I shouldn’t have been too eager to talk to you again.",
+    "Maybe we’ll never even talk again. And that’s the most bitter thing I can think about right now. You’re gonna be the strangest stranger in my life—for being a stranger who knows the most about me.",
+    "I am pathetic, no? Who’s gonna believe me if I tell my friends about what happened to us last year? I have not told anyone. I am dealing with this in complete solitude, and I can’t reach out to them. They are wondering, have been wondering. They wonder why I gotten so slim, why I had so much physical change in the span of the months I spent in Pampanga. They wonder what I talk about in my dump accounts. Everyone around me is curious. Hehe, maybe that’s simply what I am. I am someone who hides in the comfort of anonymity.",
+    "I am someone who eats self-pity for breakfast and self-loathing for supper. I am someone who gets so easily blinded by nostalgia.",
+    "I wonder. Nope. Maybe I shouldn’t ask you the questions I have in my head right now. After all, you heard it from me, right? Saying, “Not all questions need to be answered.” This is all just my karmic cycle.",
+    "I guess I have to be born anew today, my 21st birthday. Be someone you’ll be proud of.",
+    "I wish you’re safe and healthy right now. That’s all I have to wish right now.",
+    "And you’re tired of these three words,",
+    "I am sorry.",
+    "That I can’t be the one you thought you could stay with."
     ]
   }
 ];
@@ -231,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 });
+
 
 
 
